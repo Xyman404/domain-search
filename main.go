@@ -12,10 +12,10 @@ import (
 func main(){
 	var name string
 	var Domens []string
+	//I use the whois service to get domain information
 	const url  = "https://www.nic.ru/whois/?searchWord="
-	//name = os.Args[1]
-	name = "python"
-
+	name = os.Args[1]
+	//domenslist file stores some domain zones.If you want to add a new domain to the search database, just edit this file.
 	file, err := os.Open("domainlist.txt")
 	if err != nil {
 		log.Print(err)
@@ -23,7 +23,6 @@ func main(){
 	}
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		//fmt.Println(scanner.Text())
 		Domens = append(Domens, scanner.Text())
 	}
 	for _,domen:=range(Domens){
