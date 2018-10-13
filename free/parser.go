@@ -23,8 +23,8 @@ func Freedom(address string){
 		log.Print(err)
 		return
 	}
-	result:=doc.Find("._1_uOq").Contents().Text()
-	if result==""{
+	result:=doc.Find("._1_uOq").Contents().Text() //this div class contains domain usage information
+	if result==""{ //if it is empty, then this domain is free
 		name:=address[strings.Index(address,"=")+1:]
 		result = name + " is free"
 		fmt.Println(result)
