@@ -9,18 +9,16 @@ import (
 )
 
 func postHandler(w http.ResponseWriter, r *http.Request) {
-	//fmt.Println("dff")
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil{
 		log.Fatal(err)
 	}
-	fmt.Print(string(body))
-    message:=domain_search.DomainSearch(string(body)[5:])
-   // message:="Stasichuy!!!"
+    message:=domain_search.DomainSearch(string(body)[5:]) //my frontend developer made this crutch
     fmt.Fprintf(w, message)
 }
 
 func main() {
+	// upload html,css,js file for response
     fs := http.FileServer(http.Dir("static"))
     http.Handle("/", fs)
     http.HandleFunc("/log",postHandler)
