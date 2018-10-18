@@ -32,11 +32,9 @@ func DomainSearch(name string)(string){
 
 	for _,domen:=range(Domens){
 		wg.Add(1)
-		//time.Sleep(time.Second)
 		go free.Freedom(url+name+domen,&wg,&result)
 	}
 
 	wg.Wait()
-	//fmt.Println(result)
 	return result
 }
