@@ -10,7 +10,6 @@ $(document).ready(function() {
             type: "POST",
             url: "http://127.0.0.1:3000/log",
             data: $(this).serialize()
-
         }).done(function(data) {
             console.log(data);
             $("#result").html("<p>" + data + "</p>");
