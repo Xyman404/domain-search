@@ -3,6 +3,7 @@ package domain_search
 import (
 	"./free"
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	"sync"
@@ -22,7 +23,8 @@ func DomainSearch(name string)(string){
 	file, err := os.Open("domainlist.txt")
 	defer file.Close()
 	if err != nil {
-		log.Fatal(err)
+		log.Print(err)
+		fmt.Scan()
 	}
 
 	scanner := bufio.NewScanner(file)
@@ -36,5 +38,6 @@ func DomainSearch(name string)(string){
 	}
 
 	wg.Wait()
+	fmt.Println(result)
 	return result
 }

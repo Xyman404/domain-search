@@ -1,16 +1,11 @@
-// Отправка заявки
 $(document).ready(function() {
     $('#check-domain-form').submit(function() {
-        if (document.form.value == "") {
-            valid = false;
-            return valid;
-        }
         $("#loader").show("slow");
         $.ajax({
-            type: "POST",
-            url: "http://127.0.0.1:3000/log",
-            data: $(this).serialize()
-        }).done(function(data) {
+            url:     "http://127.0.0.1:3000/log", //url страницы
+            type:     "POST", //метод отправки
+            data: $(this).serialize(),  // Сеарилизуем объект
+        }).done(function(data){
             console.log(data);
             $("#result").html("<p>" + data + "</p>");
             $(this).find('input').val('');

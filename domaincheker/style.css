@@ -1,0 +1,24 @@
+.main{
+	text-align: center;
+	color: red;
+	background-image: url("1.jpg");
+	background-attachment:local; 
+	height: 100%;
+	overflow: hidden;
+
+}
+.perv{
+	font-size: 20pt;
+	width: 33%;
+	float: left;
+}	
+.vtor{
+	font-size: 20pt;
+	width: 33%;
+	float: left;
+}
+.tret{
+	font-size: 20pt;
+	float: left;
+	width: 33%;
+}
